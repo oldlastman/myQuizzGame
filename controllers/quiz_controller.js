@@ -11,15 +11,25 @@ exports.load = function(req, res, next, quizId) {
     }
   ).catch(function(error) { next(error);});
 };
-
 // GET /quizes
+// buscador https://github.com/dpramar/quiz-miriadax
 exports.index = function(req, res) {
-  models.Quiz.findAll().then(
-    function(quizes) {
-      res.render('quizes/index', { quizes: quizes});
-    }
-  ).catch(function(error) { next(error);})
+  search = req.query.search;
+  if(search) {
+    search = '%' + search.replace(/\s/g,"%") +'%';
+    models.Quiz.findAll({where: ["pregunta LIKE ?",search], order: 'pregunta ASC'}).then(function(quizes){
+      res.render('quizes/index', {quizes: quizes, errors: []});  
+    })
+    .catch(function(error) {next(error);});
+  } else {
+    models.Quiz.findAll().then(function(quizes){
+      res.render('quizes/index', {quizes: quizes, errors: []});  
+    })
+    .catch(function(error) {next(error);});
+  }
 };
+
+
 
 // GET /quizes/:id
 exports.show = function(req, res) {
