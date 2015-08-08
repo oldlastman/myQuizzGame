@@ -1,5 +1,5 @@
-Ya he iniciado la practica p2p8 el contenido de esta rama master se corresponde al estado actual de la misma
-En este momento está en el apartado quizz14 del módulo 8
+Ya he iniciado la practica p2p9 el contenido de esta rama master se corresponde al estado actual de la misma
+
 
 
 La url para acceder a la aplicación en heroku es:
@@ -10,3 +10,6 @@ https://github.com/oldlastman/myQuizzGame/commit/063fc2cddc3f1ca53e0ad383734bfff
 
 * La prácitca p2p7 puede verse en la rama búsqueda o en el tag:
 https://github.com/oldlastman/myQuizzGame/tree/p2p7
+
+* La práctica p2p8 puede verse finalizada en el tag:
+https://github.com/oldlastman/myQuizzGame/tree/p2p8-zfinal
