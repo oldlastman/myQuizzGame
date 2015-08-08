@@ -1,4 +1,5 @@
 Ya he iniciado la practica p2p8 el contenido de esta rama master se corresponde al estado actual de la misma
+En este momento está en el partado quizz12 del módulo 8
 
 
 La url para acceder a la aplicación en heroku es:
