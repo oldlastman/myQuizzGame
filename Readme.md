@@ -1,4 +1,6 @@
-Práctica p2p9 parte obligatoria finalizada
+Práctica p2p9 
+- parte obligatoria finalizada
+- parte opcional estadísticas finalizada
 
 
 
