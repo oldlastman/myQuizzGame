@@ -30,7 +30,8 @@ exports.show = function(req, res, next) {
                 include: [{
                     model: models.Comment,
                     as: "Comments",
-                    required: true
+                    required: true,
+                    attributes: []
                 }],
                 distinct: 'pregunta',
                 group: 'Quiz.pregunta'
