@@ -1,5 +1,6 @@
-Ya he iniciado la practica p2p9 el contenido de esta rama master se corresponde al estado actual de la misma
-Actualmente quizz19
+Práctica p2p9 
+- parte obligatoria finalizada
+- parte opcional estadísticas finalizada
 
 
 

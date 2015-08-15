@@ -28,6 +28,22 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// middleware control tiempo session
+app.use(function (req,res,next) {
+  if (req.session.user){
+    req.session.sessionTime = req.session.sessionTime || new Date().getTime();
+    var timeNow = new Date().getTime();
+    var timeOut = 2 * 60 * 1000;
+    if ( (timeNow - req.session.sessionTime) > timeOut){
+      delete req.session.sessionTime;
+      delete req.session.user;
+    }else {
+      req.session.sessionTime = timeNow;
+    }
+  }
+  next();
+});
+
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 
