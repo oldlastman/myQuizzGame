@@ -32,7 +32,8 @@ exports.show = function(req, res, next) {
                     as: "Comments",
                     required: true
                 }],
-                distinct: 'pregunta'
+                distinct: 'pregunta',
+                groupby: 'pregunta'
             });
     }).then(function(pregConComentarios){
         datos['pregConComentarios'] = pregConComentarios;
