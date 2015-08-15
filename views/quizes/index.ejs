@@ -2,7 +2,8 @@
   <% var i; for (i=0; i < quizes.length; i++) { %>        
      <tr>
       <td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %> (<%= quizes[i].tipopreg %>)</a></td>
-      <td><a href="quizes/<%= quizes[i].id %>/edit">Editar</a></td>
+      <%if(session.user){%>
+      <td><a href="quizes/<%= quizes[i].id %>/edit">Editar</a></td>       
        <td>
         <form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
           <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
@@ -10,6 +11,7 @@
           </button>
         </form>
       </td>
+      <% } %>
     </tr> 
   <% } %>
   </table>
@@ -20,4 +22,6 @@
 	  <input type="submit" value="Enviar">
 	</form>
 </p>
+<%if(session.user){%>
 <p><a href="/quizes/new">Crear nueva pregunta</a></p>
+<% } %>
