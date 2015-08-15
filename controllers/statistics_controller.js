@@ -19,7 +19,7 @@ exports.show = function(req, res, next) {
         datos['comentariosTotal'] = comentariosTotal;
 
         return models.Comment.count({
-                where : {publicado: true}
+                where : {publicado: false}
             });
     }).then(function(ComentariosSinAprobar){
         
