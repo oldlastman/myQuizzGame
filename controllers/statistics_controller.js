@@ -1,5 +1,5 @@
 var models = require('../models/models.js');
-
+// basado en https://github.com/jafs/quiz-miriadax/blob/17cc885f4dae6dd08b62cd3e4e9b091399ccbce0/controllers/statistics_controller.js
 exports.show = function(req, res, next) {
     var datos = new Array();
         datos['pregTotal']             = 0
@@ -25,19 +25,18 @@ exports.show = function(req, res, next) {
         
         datos['ComentariosSinAprobar'] = ComentariosSinAprobar;
 
-        return models.Quiz.count({
-                attributes: ['pregunta'],
-                include: [{
-                    model: models.Comment,
-                    as: "Comments",
-                    required: true,
-                    attributes: []
-                }],
-                distinct: 'pregunta',
-                group: 'Quiz.pregunta'
-            });
-    }).then(function(pregConComentarios){
-        datos['pregConComentarios'] = pregConComentarios;
+        return models.Quiz.findAll({
+            include: [{
+                model: models.Comment
+            }]});
+    }).then(function(quizes){
+
+        for (var i in quizes) {
+            if (quizes[i].Comments.length) {
+                ++datos['pregConComentarios'];
+            } 
+        }
+
         datos['pregSinComentarios'] = datos['pregTotal'] - datos['pregConComentarios'];  
             
             
