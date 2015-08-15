@@ -30,10 +30,10 @@ exports.show = function(req, res, next) {
                 include: [{
                     model: models.Comment,
                     as: "Comments",
-                    required: true,
-                    attributes: []
+                    required: true
                 }],
-                distinct: 'pregunta'
+                distinct: 'pregunta',
+                group: 'Quiz.pregunta'
             });
     }).then(function(pregConComentarios){
         datos['pregConComentarios'] = pregConComentarios;
